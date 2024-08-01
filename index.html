@@ -41,7 +41,7 @@
         }
         .hidden-content {
             display: none;
-            margin-top: 20px;
+            margin-top: 0px;
         }
         .table-container {
             overflow-x: auto;
@@ -62,6 +62,8 @@
         th {
             background-color: #4CAF50;
             color: white;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         tr:nth-child(even) {    
             background-color: #f2f2f2;
@@ -89,6 +91,26 @@
         }
         .back-button:hover {
             background-color: #e31e0f;
+        }
+        .sidebar {
+            margin-left: 20px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
         }
     </style>
     <script type="text/javascript">
@@ -140,19 +162,22 @@
     </div>
     
     <div id="table1" class="hidden-content">
-        <h2>資工-2(上)班級名單</h2>
+        <div class="content-container">
+            <div class="table-container">
+        <h3>資工-2(上)班級名單</h3>
         <div class="table-container">
             <table id="table1">
                 <tr>
                     <th>編號</th>
                     <th>學號</th>
                     <th>姓名</th>
+                    <th>幹部</th>
                 </tr>
                 <tr><td></td><td>導師</td><td>黃馨逸</td></tr>
                 <tr><td>1</td><td>2411232002</td><td>黃羽崢</td></tr>
                 <tr><td>2</td><td>2411232003</td><td>蔡政邦</td></tr>
                 <tr><td>3</td><td>2411232004</td><td>何亮妤</td></tr>
-                <tr><td>4</td><td>2411232005</td><td>黃鈺晴</td></tr>
+                <tr><td>4</td><td>2411232005</td><td>黃鈺晴</td><td>學藝</td></tr>
                 <tr><td>5</td><td>2411232006</td><td>陳暐傑</td></tr>
                 <tr><td>6</td><td>2411232008</td><td>郭品君</td></tr>
                 <tr><td>7</td><td>2411232009</td><td>陳淑瀅</td></tr>
@@ -161,11 +186,11 @@
                 <tr><td>10</td><td>2411232012</td><td>何晏宇</td></tr>
                 <tr><td>11</td><td>2411232013</td><td>梁庭榛</td></tr>
                 <tr><td>12</td><td>2411232014</td><td>温宜亭</td></tr>
-                <tr><td>13</td><td>2411232015</td><td>紀柏帆</td></tr>
+                <tr><td>13</td><td>2411232015</td><td>紀柏帆</td><td>康樂</td></tr>
                 <tr><td>14</td><td>2411232016</td><td>陳梓峰</td></tr>
                 <tr><td>15</td><td>2411232017</td><td>羅怡芳</td></tr>
-                <tr><td>16</td><td>2411232018</td><td>王言潼</td></tr>
-                <tr><td>17</td><td>2411232019</td><td>吳弈漢</td></tr>
+                <tr><td>16</td><td>2411232018</td><td>王言潼</td><td>事務</td></tr>
+                <tr><td>17</td><td>2411232019</td><td>吳弈漢</td><td>副班代</td></tr>
                 <tr><td>18</td><td>2411232020</td><td>劉瑋傑</td></tr>
                 <tr><td>19</td><td>2411232022</td><td>林昱辰</td></tr>
                 <tr><td>20</td><td>2411232023</td><td>林俊澄</td></tr>
@@ -181,13 +206,13 @@
                 <tr><td>30</td><td>2411232037</td><td>賴駿凱</td></tr>
                 <tr><td>31</td><td>2411232039</td><td>張雨琇</td></tr>
                 <tr><td>32</td><td>2411232040</td><td>胡裕晟</td></tr>
-                <tr><td>33</td><td>2411232041</td><td>吳益駿</td></tr>
+                <tr><td>33</td><td>2411232041</td><td>吳益駿</td><td>班長</td></tr>
                 <tr><td>34</td><td>2411232042</td><td>簡國峰</td></tr>
                 <tr><td>35</td><td>2411232043</td><td>楊禮維</td></tr>
                 <tr><td>36</td><td>2411232044</td><td>孔佑豪</td></tr>
                 <tr><td>37</td><td>2411232046</td><td>林楷哲</td></tr>
                 <tr><td>38</td><td>2411232050</td><td>邱彥鈞</td></tr>
-                <tr><td>39</td><td>2411132022</td><td>郭曜逵</td></tr>
+                <tr><td>39</td><td>2411132022</td><td>郭曜逵</td><td>服務</td></tr>
             </table>
             <div class="pagination">
                 <button onclick="changePage(-1)">上一頁</button>
@@ -195,12 +220,14 @@
                 <button onclick="changePage(1)">下一頁</button>
             </div>
         </div>
+        </div>
+    </div>
         <button class="back-button" onclick="showButtons()">返回首頁</button>
         <button onclick="showContent('table2')">查看課表</button>
     </div>
     
     <div id="table2" class="hidden-content">
-        <h2>（夜）資工－2（上）課表</h2>
+        <h3>（夜）資工－2（上）課表</h3>
         <table>
             <tr>
                 <th>時間</th>
@@ -212,22 +239,22 @@
                 <th>六</th>
             </tr>
             <tr>
-                <td>13:40 - 14:25</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>13:40 - 14:25</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
-                <td>14:30 - 15:15</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>14:30 - 15:15</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
-                <td>15:20 - 16:05</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>15:20 - 16:05</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
                 <td>16:10 - 16:55</td><td></td><td></td><td></td><td></td><td></td><td></td>
@@ -236,31 +263,34 @@
                 <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-                <td>18:00 - 18:45</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>18:00 - 18:45</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td>6605</td><td>2702</td><td></td><td>2705</td><td>2702</td><td></td>
             </tr>
             <tr>
-                <td>18:50 - 19:35</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>18:50 - 19:35</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
             </tr>
             <tr>
-                <td>教室</td><td>2703</td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td>6605</td><td>2702</td><td></td><td>2705</td><td>2702</td><td></td>
             </tr>
             <tr>
-                <td>19:40 - 20:25</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>19:40 - 20:25</td><td>數位邏輯設計</td><td>資料結構</td><td>工程數學</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td>2703</td><td>2702</td><td>0000</td><td>2705</td><td>2702</td><td></td>
             </tr>
             <tr>
-                <td>20:30 - 21:15</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>20:30 - 21:15</td><td>數位邏輯設計</td><td>體育</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
             </tr>
             <tr>
-                <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>教室</td><td>2703</td><td>0000</td><td>0000</td><td>3206</td><td></td><td></td>
             </tr>
             <tr>
-                <td>21:20 - 22:05</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td>21:20 - 22:05</td><td>數位邏輯設計</td><td>體育</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>教室</td><td>2703</td><td>0000</td><td>0000</td><td>3206</td><td></td><td></td>
             </tr>
         </table>
         <button class="back-button" onclick="showButtons()">返回首頁</button>
