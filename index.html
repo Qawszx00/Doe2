@@ -8,21 +8,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             flex-direction: column;
-            overflow-x: hidden;
+            overflow-x: auto;
         }
         h1, h2 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #1f1d1d;
+            margin-bottom: 10px;
         }
         .button-container {
-            margin-top: 20px;
+            margin-top: 50px;
             display: flex;
             justify-content: center;
         }
@@ -37,11 +37,11 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #e26918d5;
         }
         .hidden-content {
             display: none;
-            margin-top: 0px;
+            margin-top: 10px;
         }
         .table-container {
             overflow-x: auto;
@@ -51,8 +51,8 @@
             align-items: center;
             justify-content: center;
         }
-        #table1 {
-            width: 60%;
+        #table {
+            width: 100%;
         }
         th, td {
             border: 2px solid #ddd;
@@ -103,15 +103,6 @@
             color: #333;
             margin-bottom: 10px;
         }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #333;
-        }
     </style>
     <script type="text/javascript">
         let currentPage = 1;
@@ -126,6 +117,9 @@
             rows.forEach((row, index) => {
                 row.style.display = (index >= (page - 1) * recordsPerPage && index < page * recordsPerPage) ? '' : 'none';
             });
+            const table = document.getElementById('table1');
+            const thead = table.querySelector('thead').cloneNode(true);
+            table.insertBefore(thead, table.querySelector('tbody'));
 
             currentPage = page;
             document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
@@ -230,6 +224,7 @@
         <h3>（夜）資工－2（上）課表</h3>
         <table>
             <tr>
+                <th>節次</th>
                 <th>時間</th>
                 <th>一</th>
                 <th>二</th>
@@ -239,55 +234,55 @@
                 <th>六</th>
             </tr>
             <tr>
-                <td>13:40 - 14:25</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
+                <td rowspan="2">六</td><td>13:40 - 14:25</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
                 <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
-                <td>14:30 - 15:15</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
+                <td rowspan="2">七</td><td>14:30 - 15:15</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
                 <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
-                <td>15:20 - 16:05</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
+                <td rowspan="2">八</td><td>15:20 - 16:05</td><td></td><td></td><td></td><td></td><td></td><td>計算機網路</td>
             </tr>
             <tr>
                 <td>教室</td><td></td><td></td><td></td><td></td><td></td><td>2702</td>
             </tr>
             <tr>
-                <td>16:10 - 16:55</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td rowspan="2">九</td><td>16:10 - 16:55</td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
                 <td>教室</td><td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-                <td>18:00 - 18:45</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
+                <td rowspan="2">十</td><td>18:00 - 18:45</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
+            </tr>
+            <tr>
+               td>教室</td><td>6605</td><td>2702</td><td></td><td>2705</td><td>2702</td><td></td>
+            </tr>
+            <tr>
+                <td rowspan="2">十一</td><td>18:50 - 19:35</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
             </tr>
             <tr>
                 <td>教室</td><td>6605</td><td>2702</td><td></td><td>2705</td><td>2702</td><td></td>
             </tr>
             <tr>
-                <td>18:50 - 19:35</td><td>班會</td><td>資料結構</td><td>國防</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
-            </tr>
-            <tr>
-                <td>教室</td><td>6605</td><td>2702</td><td></td><td>2705</td><td>2702</td><td></td>
-            </tr>
-            <tr>
-                <td>19:40 - 20:25</td><td>數位邏輯設計</td><td>資料結構</td><td>工程數學</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
+                <td rowspan="2">十二</td><td>19:40 - 20:25</td><td>數位邏輯設計</td><td>資料結構</td><td>工程數學</td><td>人工智慧概論</td><td>計算機組織</td><td></td>
             </tr>
             <tr>
                 <td>教室</td><td>2703</td><td>2702</td><td>0000</td><td>2705</td><td>2702</td><td></td>
             </tr>
             <tr>
-                <td>20:30 - 21:15</td><td>數位邏輯設計</td><td>羽球</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
+                <td rowspan="2">十三</td><td>20:30 - 21:15</td><td>數位邏輯設計</td><td>體育</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
             </tr>
             <tr>
                 <td>教室</td><td>2703</td><td>0000</td><td>0000</td><td>3206</td><td></td><td></td>
             </tr>
             <tr>
-                <td>21:20 - 22:05</td><td>數位邏輯設計</td><td>羽球</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
+                <td rowspan="2">十四</td><td>21:20 - 22:05</td><td>數位邏輯設計</td><td>體育</td><td>工程數學</td><td>台灣開發史</td><td></td><td></td>
             </tr>
             <tr>
                 <td>教室</td><td>2703</td><td>0000</td><td>0000</td><td>3206</td><td></td><td></td>
